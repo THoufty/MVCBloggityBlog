@@ -12,7 +12,6 @@ const signupFormHandler = async function(event) {
     }),
     headers: { 'Content-Type': 'application/json' },
   });
-
   if (response.ok) {
     document.location.replace('/dashboard');
   } else {
