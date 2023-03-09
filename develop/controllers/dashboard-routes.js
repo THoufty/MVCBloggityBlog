@@ -3,6 +3,7 @@ const { Post } = require('../models/');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
+  console.log(req.body,"dashboard")
   try {
     const postData = await Post.findAll({
       where: {
@@ -38,6 +39,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
       res.render('edit-post', {
         layout: 'dashboard',
         post,
+        loggedIn: true
       });
     } else {
       res.status(404).end();

@@ -3,9 +3,12 @@ const { Comment } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
-  Comment.create(req.body)
+  console.log("here I am right here!", req.body)
+  Comment.create({
+    ...req.body,
+    user_id: req.session.userId})
   .then((newComment) => {
-    res.status(200).json(newComment)
+      res.status(200).json(newComment)
   })
   .catch((err) => {
     res.status(400).json(err)

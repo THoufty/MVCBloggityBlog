@@ -1,6 +1,7 @@
 <div class="posts">
 {{#each posts as |post|}}
-<div>{{post.title}}</div>
+<a href="./post/{{post.id}}">
+<div>{{post.title}}</div></a>
 <div>{{post.content}}</div>
 {{/each}}
 </div>

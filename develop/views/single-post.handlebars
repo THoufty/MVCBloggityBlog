@@ -10,8 +10,8 @@
       {{post.body}}
     </div>
   </article>
-{{#if comments}}
-{{#each comments as |comment|}}
+{{#if post.comments}}
+{{#each post.comments as |comment|}}
 <div class="comments">
 <div>{{comment.description}}</div>
 </div>

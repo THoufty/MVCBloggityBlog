@@ -18,7 +18,13 @@ router.post('/', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
     Post.update(req.body,
         {where: { id: req.params.id }}
-    )  
+    )
+    .then((newPost) => {
+      res.status(200).json(newPost)
+    })
+    .catch((err) => {
+      res.status(400).json(err)
+    })
 });
 
 router.delete('/:id', withAuth, (req, res) => {

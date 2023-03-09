@@ -31,7 +31,7 @@ router.get('/post/:id', async (req, res) => {
 
     if (postData) {
       const post = postData.get({ plain: true });
-
+console.log(post)
       res.render('single-post', { post });
     } else {
       res.status(404).end();
@@ -43,7 +43,7 @@ router.get('/post/:id', async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   }
 
@@ -52,11 +52,12 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   }
 
   res.render('signup');
+
 });
 
 module.exports = router;
